@@ -69,7 +69,6 @@ if (promptFight === "" || promptFight === null) {
       break;
     }
 }
-
   // if player picks "skip" confirm and then stop the loop
   PromptFight = promptFight.toLowerCase ();
   if (promptFight === "skip") {
@@ -88,9 +87,10 @@ if (promptFight === "" || promptFight === null) {
       // subtract money from playerMoney for skipping
       playerInfo.playerMoney = playerInfo.money - 10;
       shop();
-    }
+    
     return false;
   }
+}
 
 
 // fight function (now with parameter for enemy's object holding name, health, and attack values)
@@ -182,24 +182,21 @@ var shop = function() {
   );
 
   // use switch case to carry out action
-  switch (shopOptionPrompt) {
-    case 'refill':
-    case 'REFILL':
-      playerInfo.refillHealth();
-      break;
-    case 'upgrade':
-    case 'UPGRADE':
-      playerInfo.upgradeAttack();
-      break;
-    case 'leave':
-    case 'LEAVE':
-      window.alert('Leaving the store.');
-      break;
-    default:
-      window.alert('You did not pick a valid option. Try again.');
-      shop();
-      break;
-  }
+ switch (shopOptionPrompt) {
+   case 1:
+     playerInfo.refillHealth();
+     break;
+     case 2:
+       playerInfor.upgradeAttack();
+       break;
+       case 3:
+         window.alert("leacing the store.");
+         break;
+         default:
+           window.alert("you did not pick a valid option. try again.");
+           shop();
+           break;
+ }
 };
 
 // function to generate a random numeric value
